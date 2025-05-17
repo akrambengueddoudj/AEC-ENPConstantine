@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row min-vh-100">
+        <!-- Sidebar -->
+        <div class="col-md-3 bg-dark text-white p-3 sidebar">
+            <h4 class="text-center mb-4">
+                <i class="fas fa-plane me-2"></i>FOD Control Center
+            </h4>
+            <hr>
+            <div class="system-status">
+                <h5><i class="fas fa-satellite-dish me-2"></i>System Status</h5>
+                <div class="alert alert-success mt-3">
+                    <i class="fas fa-circle-check me-2"></i>All systems operational
+                </div>
+                <ul class="list-group list-group-flush mt-3">
+                    <li class="list-group-item bg-dark text-white">
+                        <i class="fas fa-video me-2"></i>Camera: <span class="badge bg-success">Online</span>
+                    </li>
+                    <li class="list-group-item bg-dark text-white">
+                        <i class="fas fa-robot me-2"></i>AI Model: <span class="badge bg-success">Active</span>
+                    </li>
+                    <li class="list-group-item bg-dark text-white">
+                        <i class="fas fa-wifi me-2"></i>Connection: <span class="badge bg-success">Stable</span>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div class="statistics mt-4">
+                <h5><i class="fas fa-chart-bar me-2"></i>Today's Stats</h5>
+                <div class="stats-grid mt-3">
+                    <div class="stat-box bg-primary p-2 rounded text-center mb-2">
+                        <small>Total Detections</small>
+                        <h4 class="m-0">12</h4>
+                    </div>
+                    <div class="stat-box bg-warning p-2 rounded text-center mb-2">
+                        <small>High Risk</small>
+                        <h4 class="m-0">3</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 p-4 main-content">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3><i class="fas fa-map-marked-alt me-2"></i>Runway Monitoring</h3>
+                <button class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-cog me-1"></i>Settings
+                </button>
+            </div>
+
+            <!-- Alert Banner -->
+            <div class="alert-banner alert alert-danger d-none">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>New FOD Detected!</strong> 
+                        <span class="alert-details">Metal object detected in Landing Zone (85% confidence)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Runway Map -->
+            <div class="runway-map-container mb-4">
+                <div class="runway-map" id="runwayMap"></div>
+                <div class="map-legend">
+                    <span class="legend-item high-risk me-2"><i class="fas fa-square"></i> High Risk</span>
+                    <span class="legend-item medium-risk me-2"><i class="fas fa-square"></i> Medium Risk</span>
+                    <span class="legend-item low-risk"><i class="fas fa-square"></i> Low Risk</span>
+                </div>
+            </div>
+
+            <!-- Detection History -->
+            <div class="detection-history">
+                <h5 class="mb-3"><i class="fas fa-history me-2"></i>Recent Detections</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Object Type</th>
+                                <th>Location</th>
+                                <th>Confidence</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detectionTableBody">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

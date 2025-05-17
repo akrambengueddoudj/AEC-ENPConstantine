@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    background-color: #212529;
+    min-height: 100vh;
+}
+
+.main-content {
+    background-color: #fff;
+}
+
+.alert-banner {
+    border-left: 5px solid #dc3545;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.runway-map-container {
+    position: relative;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 300px;
+    background-color: #e9ecef;
+}
+
+.runway-map {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #6c757d, #adb5bd);
+    position: relative;
+}
+
+.map-legend {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.legend-item i {
+    margin-right: 3px;
+}
+
+.high-risk i { color: #dc3545; }
+.medium-risk i { color: #fd7e14; }
+.low-risk i { color: #ffc107; }
+
+.stat-box {
+    color: white;
+}
+
+.stat-box small {
+    display: block;
+    opacity: 0.8;
+}
+
+.detection-history {
+    margin-top: 20px;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+/* Detection marker on map */
+.detection-marker {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.detection-marker::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: inherit;
+    opacity: 0.4;
+    top: -5px;
+    left: -5px;
+}
